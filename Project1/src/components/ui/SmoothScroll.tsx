@@ -14,10 +14,11 @@ export default function SmoothScroll() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const lenis = new Lenis({
-      duration: 1.05,
-      easing: (x: number) => Math.min(1, 1.001 - Math.pow(2, -10 * x)),
+      duration: 1.35,
+      easing: (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 1.6,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.8,
       autoRaf: false,
     })
 
@@ -29,11 +30,7 @@ export default function SmoothScroll() {
     frame = requestAnimationFrame(loop)
 
     /**
-     * In-page links travel instead of jumping. A native hash navigation sets
-     * the scroll position in one frame, which on a weighted page reads as the
-     * document being yanked — and it fights the smoother, which then drags it
-     * back. Handing the target to Lenis makes the floating note's "Let's
-     * connect" actually carry you down to the last page.
+     * In-page links travel instead of jumping.
      */
     const onClick = (e: MouseEvent) => {
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return
@@ -43,7 +40,10 @@ export default function SmoothScroll() {
       const target = document.querySelector(hash)
       if (!target) return
       e.preventDefault()
-      lenis.scrollTo(target as HTMLElement, { duration: 1.6 })
+      lenis.scrollTo(target as HTMLElement, {
+        duration: 1.4,
+        easing: (t: number) => 1 - Math.pow(1 - t, 4),
+      })
       history.pushState(null, '', hash)
     }
     document.addEventListener('click', onClick)
