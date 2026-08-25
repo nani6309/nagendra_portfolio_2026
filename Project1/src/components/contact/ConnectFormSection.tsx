@@ -27,7 +27,14 @@ export default function ConnectFormSection() {
   const [errorMsg, setErrorMsg] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    const { name, value } = e.target
+    if (name === 'mobile') {
+      // Restrict mobile input strictly to numbers only, max 10 digits
+      const digitsOnly = value.replace(/\D/g, '').slice(0, 10)
+      setFormData((prev) => ({ ...prev, mobile: digitsOnly }))
+      return
+    }
+    setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,7 +42,7 @@ export default function ConnectFormSection() {
 
     if (!formData.name.trim()) {
       setStatus('error')
-      setErrorMsg('Please enter your name.')
+      setErrorMsg('Please enter your full name.')
       return
     }
 
@@ -45,9 +52,15 @@ export default function ConnectFormSection() {
       return
     }
 
+    if (formData.mobile.trim().length !== 10) {
+      setStatus('error')
+      setErrorMsg('Mobile number must be exactly 10 digits (e.g. 9876543210).')
+      return
+    }
+
     if (!formData.message.trim()) {
       setStatus('error')
-      setErrorMsg('Please write a message.')
+      setErrorMsg('Please enter your message.')
       return
     }
 
@@ -244,7 +257,10 @@ export default function ConnectFormSection() {
                   type="tel"
                   name="mobile"
                   required
-                  placeholder="Enter your mobile / WhatsApp number"
+                  maxLength={10}
+                  inputMode="numeric"
+                  pattern="[0-9]{10}"
+                  placeholder="Enter 10-digit mobile number"
                   value={formData.mobile}
                   onChange={handleChange}
                   className="w-full px-4 py-3.5 rounded-xl bg-white border border-ink/15 text-ink placeholder-graphite/50 focus:outline-none focus:border-ink transition-colors font-medium text-sm"
