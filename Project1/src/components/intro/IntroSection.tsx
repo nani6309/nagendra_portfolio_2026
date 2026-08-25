@@ -64,11 +64,10 @@ export default function IntroSection() {
   }
 
   const heading: Variants = {
-    hidden: { opacity: 0, y: 26, filter: 'blur(6px)' },
+    hidden: { opacity: 0, y: 26 },
     show: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: reduced ? { duration: 0 } : { duration: 0.95, delay: 0.13, ease: ease.paper },
     },
   }

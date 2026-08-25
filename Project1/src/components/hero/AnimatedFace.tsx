@@ -219,8 +219,8 @@ export default function AnimatedFace({ className = '' }: { className?: string })
   return (
     <motion.div
       className={`relative h-full w-full ${className}`}
-      initial={{ opacity: 0, scale: 1.06, y: 8, filter: 'blur(7px)' }}
-      animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+      initial={{ opacity: 0, scale: 1.06, y: 8 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={reduced ? { duration: 0 } : { duration: 0.95, delay: cue.face, ease: ease.paper }}
       onHoverStart={() => !reduced && setSmile(true)}
       onHoverEnd={() => !reduced && setSmile(false)}

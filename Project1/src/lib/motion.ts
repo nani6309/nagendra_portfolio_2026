@@ -45,4 +45,4 @@ export const riseIn = {
   show: { opacity: 1, y: 0, transition: t.base },
 }
 
-export const viewportOnce = { once: true, amount: 0.28 } as const
+export const viewportOnce = { once: true, amount: 0.01 } as const

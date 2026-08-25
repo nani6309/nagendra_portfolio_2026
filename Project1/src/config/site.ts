@@ -146,6 +146,122 @@ export const site = {
   },
 
   /**
+   * FREELANCE SHOWCASE — real-time web projects delivered to real clients.
+   *
+   * Every project here is live, in production, and earning revenue for its
+   * owner. The section visualises them with live previews and categorises them
+   * by industry so recruiters see breadth. The 5/5 client rating is carried
+   * on the section, not on each card, because the consistency is the point.
+   */
+  freelance: {
+    heading: 'MASTER WEB FREELANCE PROJECTS',
+    sub: 'Real-time web projects delivered as freelance — built by understanding business needs, delivered at reasonable prices, and rated ★★★★★ by every client.',
+    badge: '11 PROJECTS • 5/5 CLIENT RATING',
+    categories: ['All', 'Restaurants', 'Education', 'E-Commerce', 'Photography', 'Events'] as const,
+    projects: [
+      {
+        name: 'Hyderabad Mandi',
+        category: 'Restaurants',
+        href: 'https://hyderabadmandi.vercel.app/',
+        description: 'Authentic Hyderabadi restaurant with online ordering, menu showcase, and reservation system.',
+        tags: ['Next.js', 'Vercel', 'Responsive'],
+        color: '#C4953A',
+        image: '/assets/freelance/hyderabad-mandi.png',
+      },
+      {
+        name: 'Thanjavur Kitchen',
+        category: 'Restaurants',
+        href: 'https://thanjavurkitchen.netlify.app/',
+        description: 'South Indian restaurant with dual sites — customer-facing menu and internal operations dashboard.',
+        tags: ['React', 'Netlify', 'Multi-site'],
+        color: '#B93E3E',
+        image: '/assets/freelance/thanjavur-kitchen.png',
+      },
+      {
+        name: 'Visishta High School',
+        category: 'Education',
+        href: 'https://visishtaschool.com/',
+        description: 'Full school ecosystem with public site, parent dashboard, and admin portal for attendance and grades.',
+        tags: ['Full Stack', 'Auth', 'Dashboard'],
+        color: '#3B82C4',
+        image: '/assets/freelance/visishta-school.png',
+      },
+      {
+        name: 'Gladia Brewery',
+        category: 'Restaurants',
+        href: 'https://www.gladiabrewery.com/',
+        description: 'Premium craft brewery with immersive brand experience, events calendar, and reservation flow.',
+        tags: ['Branding', 'Animation', 'Premium'],
+        color: '#D4A853',
+        image: '/assets/freelance/gladia-brewery.png',
+      },
+      {
+        name: 'Kabooz',
+        category: 'Restaurants',
+        href: 'https://kabooz.in/',
+        description: 'Trendy restaurant with dynamic menu, online ordering, and loyalty program integration.',
+        tags: ['React', 'UI/UX', 'Ordering'],
+        color: '#E85D4A',
+        image: '/assets/freelance/kabooz.png',
+      },
+      {
+        name: 'Biryani Bhojanam',
+        category: 'Restaurants',
+        href: 'https://biryanibhojanam.com/',
+        description: 'Speciality biryani house with rich visual storytelling, menu system, and delivery integration.',
+        tags: ['Branding', 'SEO', 'Full Stack'],
+        color: '#C4742A',
+        image: '/assets/freelance/biryani-bhojanam.png',
+      },
+      {
+        name: 'Saptha Knots',
+        category: 'Events',
+        href: 'https://saptha-knots-frontend.vercel.app/',
+        description: 'Wedding planning platform with galleries, vendor management, and client booking system.',
+        tags: ['Vercel', 'Gallery', 'Booking'],
+        color: '#C2728A',
+        image: '/assets/freelance/saptha-knots.png',
+      },
+      {
+        name: 'New Tirumala Sarees',
+        category: 'E-Commerce',
+        href: 'https://newtirumalasareecenter.vercel.app/',
+        description: 'Traditional saree e-commerce with product catalogue, size guide, and WhatsApp ordering.',
+        tags: ['E-Commerce', 'Catalogue', 'Vercel'],
+        color: '#9B3A8F',
+        image: '/assets/freelance/tirumala-sarees.png',
+      },
+      {
+        name: 'Vasavi General Store',
+        category: 'E-Commerce',
+        href: 'https://vasavi-general-store.vercel.app/',
+        description: 'Neighbourhood grocery store brought online with product search, cart, and delivery scheduling.',
+        tags: ['E-Commerce', 'Cart', 'Search'],
+        color: '#3AA85A',
+        image: '/assets/freelance/vasavi-store.png',
+      },
+      {
+        name: 'PlutoGraphy',
+        category: 'Photography',
+        href: 'https://plutography.in/',
+        description: 'Professional photography studio with cinematic portfolio galleries and booking system.',
+        tags: ['Portfolio', 'Gallery', 'Booking'],
+        color: '#4A4A5A',
+        image: '/assets/freelance/plutography.png',
+      },
+      {
+        name: 'Zero Watts Photography',
+        category: 'Photography',
+        href: 'https://www.zerowattsphotography.com/',
+        description: 'Creative photography brand with artistic portfolio, package pricing, and client testimonials.',
+        tags: ['Branding', 'Portfolio', 'Creative'],
+        color: '#2A2A3A',
+        image: '/assets/freelance/zerowatts.png',
+      },
+    ] as const,
+  },
+
+  /**
    * The last page. The giant heading IS the button — there is no separate
    * rectangular CTA, the typography is the interface.
    *

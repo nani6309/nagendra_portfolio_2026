@@ -14,23 +14,23 @@ export default function SmoothScroll() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const lenis = new Lenis({
-      duration: 1.35,
+      duration: 1.15,
       easing: (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.8,
-      autoRaf: false,
+      wheelMultiplier: 0.95,
+      touchMultiplier: 1.5,
+      infinite: false,
     })
 
-    let frame = 0
-    const loop = (time: number) => {
+    let rafId: number
+    function update(time: number) {
       lenis.raf(time)
-      frame = requestAnimationFrame(loop)
+      rafId = requestAnimationFrame(update)
     }
-    frame = requestAnimationFrame(loop)
+    rafId = requestAnimationFrame(update)
 
     /**
-     * In-page links travel instead of jumping.
+     * In-page links travel smoothly.
      */
     const onClick = (e: MouseEvent) => {
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return
@@ -41,7 +41,7 @@ export default function SmoothScroll() {
       if (!target) return
       e.preventDefault()
       lenis.scrollTo(target as HTMLElement, {
-        duration: 1.4,
+        duration: 1.2,
         easing: (t: number) => 1 - Math.pow(1 - t, 4),
       })
       history.pushState(null, '', hash)
@@ -50,7 +50,7 @@ export default function SmoothScroll() {
 
     return () => {
       document.removeEventListener('click', onClick)
-      cancelAnimationFrame(frame)
+      cancelAnimationFrame(rafId)
       lenis.destroy()
     }
   }, [])

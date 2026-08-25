@@ -2,6 +2,8 @@ import Hero from '@/components/hero/Hero'
 import IntroSection from '@/components/intro/IntroSection'
 import NameStrip from '@/components/name/NameStrip'
 import StudioSection from '@/components/studio/StudioSection'
+import FreelanceShowcase from '@/components/freelance/FreelanceShowcase'
+import ConnectFormSection from '@/components/contact/ConnectFormSection'
 import ConnectCard from '@/components/ui/ConnectCard'
 import SiteFooter from '@/components/footer/SiteFooter'
 import PaperRun from '@/components/paper/PaperRun'
@@ -29,6 +31,8 @@ export default function Page() {
           <IntroSection />
           <NameStrip />
           <StudioSection />
+          <FreelanceShowcase />
+          <ConnectFormSection />
           <SiteFooter />
         </PaperRun>
       </main>

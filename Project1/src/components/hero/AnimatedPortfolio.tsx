@@ -109,19 +109,18 @@ export default function AnimatedPortfolio({ word, faceIndex }: Props) {
             <motion.span
               key={i}
               className="inline-block will-change-transform"
-              initial={{ opacity: 0, y: '0.085em', scale: 1.04, rotate: wobble[i], filter: 'blur(7px)' }}
+              initial={{ opacity: 0, y: '0.085em', scale: 1.04, rotate: wobble[i] }}
               /* Not a keyframe array under reduced motion: with initial={false}
                  Framer resolves a keyframe target to its FIRST value, which
                  would leave every letter parked at opacity 0. */
               animate={
                 reduced
-                  ? { opacity: 1, y: '0em', scale: 1, rotate: 0, filter: 'blur(0px)' }
+                  ? { opacity: 1, y: '0em', scale: 1, rotate: 0 }
                   : {
                       opacity: [0, 0.16, 0.16, 1],
                       y: ['0.085em', '0.05em', '0.022em', '0em'],
                       scale: [1.04, 1.02, 1.008, 1],
                       rotate: [wobble[i], wobble[i] * 0.6, wobble[i] * 0.25, 0],
-                      filter: ['blur(7px)', 'blur(3.5px)', 'blur(1.2px)', 'blur(0px)'],
                     }
               }
               transition={
