@@ -39,6 +39,13 @@ export const site = {
     href: '#contact',
   },
 
+  resume: {
+    url: '/resume',
+    pdfPath: '/assets/skills/Palla_NagendraKumar_Resume.pdf.pdf',
+    filename: 'Palla_NagendraKumar_Resume.pdf',
+    title: 'NAGENDRA KUMAR — RESUME',
+  },
+
   intro: {
     heading: 'HELLO',
     lede: "Hi, I'm NAGENDRA.",

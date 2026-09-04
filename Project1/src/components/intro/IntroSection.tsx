@@ -122,6 +122,69 @@ export default function IntroSection() {
               ))}
             </div>
 
+            {/* -------------------------------------------------- RESUME BUTTONS */}
+            <div className="mt-[1.8em] flex flex-wrap items-center gap-3">
+              <motion.a
+                href={site.resume.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="group relative inline-flex items-center gap-3 rounded-full bg-ink px-6 py-3.5 text-paper shadow-md transition-all duration-300 hover:bg-neutral-800 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2"
+              >
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-amber-400" />
+                </span>
+                <span className="text-[0.8125rem] font-extrabold uppercase tracking-[0.08em] text-paper">
+                  View My Resume
+                </span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </motion.a>
+
+              <motion.a
+                href={site.resume.pdfPath}
+                download={site.resume.filename}
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="group inline-flex items-center gap-2.5 rounded-full border border-ink/20 bg-paper/80 px-5 py-3.5 text-ink shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-ink hover:bg-paper hover:shadow-md"
+                title="Download PDF Resume"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform duration-300 group-hover:translate-y-0.5"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                <span className="text-[0.78125rem] font-bold uppercase tracking-[0.06em] text-ink">
+                  Download PDF
+                </span>
+              </motion.a>
+            </div>
+
             <h3 className="section-head m-0 mt-[1.5em] text-ink">{site.education.heading}</h3>
 
             <dl className="m-0 mt-[1.1em] flex flex-col gap-[1.15em]">
